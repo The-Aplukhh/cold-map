@@ -1,22 +1,26 @@
-var express = require('express');
-var graphqlHTTP=require("express-graphql");
-var mongoose = require('mongoose');
+import express from 'express';
+import graphqlHTTP from 'express-graphql';
+import mongoose from 'mongoose';
+
+import schema from './graphql';
+
 var app = express();
-var schema=require("./graphql");
+
+// GraphqQL server route
+
 app.use('/graphql', graphqlHTTP(req => ({
-  schema,
-  pretty: true
+	schema,
+	pretty: true,
+	graphiql: true
 })));
-app.get('/', (req, res) => {
-  res.send('Hello World..');
-});
+
 
 //=============================================================================
 /*									Database								 */
 //=============================================================================
 
 var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/RbkDB'
-var db = mongoose.connect(mongoUri,{ useMongoClient: true });
+var db = mongoose.connect(mongoURI,{ useMongoClient: true });
 db = mongoose.connection
 
 db.once('open',function () {
@@ -26,10 +30,10 @@ db.once('open',function () {
 //=============================================================================
 /*									Server   								 */
 //=============================================================================
-var port = process.env.PORT || 8000
+var port = process.env.PORT || 8080
 app.listen(port ,function () {
 	console.log('listening at ' + port);
 })
 
 
-module.exports = app
+module.exports = app;
