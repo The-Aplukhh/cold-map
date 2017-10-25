@@ -1,0 +1,26 @@
+{
+  "name": "cold-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaharAl-shurafat1990/cold-map.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaharAl-shurafat1990/cold-map/issues"
+  },
+  "homepage": "https://github.com/SaharAl-shurafat1990/cold-map#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.9.1",
+    "mongoose": "^4.8.5"
+  }
+}
