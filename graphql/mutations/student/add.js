@@ -4,23 +4,24 @@ import {
 } from 'graphql';
 
 import studentInputType from '../../types/student-input';
+import studentType from '../../types/student';
 import studentModel from '../../../models/student';
 
 export default {
-  type: GraphQLBoolean,
+ type: studentType,
   args: {
     data: {
       name: 'data',
       type: new GraphQLNonNull(studentInputType)
     }
   },
-  async resolve (root, params, options) {
-    const studentModel = new studentModel(params.data);
-    const newStudent = await studentModel.save();
+  resolve (root, params) {
+    const studentModel = new studentModel();
+    const newStudent = studentModel.save();
 
     if (!newStudent) {
       throw new Error('Error adding new student');
     }
-    return true;
+    return newStudent;
   }
 };

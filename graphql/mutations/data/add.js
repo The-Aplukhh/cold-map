@@ -4,10 +4,11 @@ import {
 } from 'graphql';
 
 import dataInputType from '../../types/data-input';
+import dataType from '../../types/data';
 import dataModel from '../../../models/dailyData';
 
 export default {
-  type: GraphQLBoolean,
+  type: dataType,
   args: {
     data: {
       name: 'data',
@@ -21,6 +22,6 @@ export default {
     if (!newData) {
       throw new Error('Error adding new data');
     }
-    return true;
+    return newData;
   }
 };
