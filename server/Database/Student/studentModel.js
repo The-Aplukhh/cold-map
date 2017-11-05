@@ -1,16 +1,19 @@
 var mongoose= require ("mongoose");
-
 var studentSchema = new mongoose.Schema({
 
 	name:{
 		type     : String,
-		required : true,
+		required : true
 
 	},
 	cohort:{
 		type     : Number,
-		required : true,
+		required : true
 
+	},
+	email:{
+		type     : String,
+		required : true
 	}
 	
 	});
