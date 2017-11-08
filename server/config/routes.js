@@ -37,13 +37,25 @@ module.exports = function (app) {
 
     app.get('/api/students', student.handleStudents.getAll);
     app.post('/api/deleteStudent', student.handleStudents.deleteStudent);
+<<<<<<< 29942f1dbcb94ce1e8fcb5fd8e986a76532b7bc1
     app.post('/api/addStudent', student.handleStudents.addStudent);
+=======
+    app.post('/api/addStudent' , student.handleStudents.addStudent);
+>>>>>>> save morning and noon data
     //staff routes
     app.get('/api/staffs', staff.handleStaffs.getAll);
     app.post('/api/deleteStaff', staff.handleStaffs.deleteStaff);
+<<<<<<< 29942f1dbcb94ce1e8fcb5fd8e986a76532b7bc1
     app.post('/api/addStaff', staff.handleStaffs.addStaff);
     //data routes
     app.get('/api/dailyData', data.handleData.getAll);
     app.post('/api/addData', data.handleData.addData);
+=======
+    app.post('/api/addStaff' , staff.handleStaffs.addStaff);
+    //data routes
+    app.get('/api/dailyData' , data.handleData.getAll);
+    app.post('/api/addData' , data.handleData.addData);
+    app.put('/api/updateData' , data.handleData.updateData); 
+>>>>>>> save morning and noon data
 
 }
