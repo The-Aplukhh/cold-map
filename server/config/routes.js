@@ -37,6 +37,7 @@ module.exports = function (app) {
 
     app.get('/api/students', student.handleStudents.getAll);
     app.post('/api/deleteStudent', student.handleStudents.deleteStudent);
+<<<<<<< 91be578acc6a2667dee8a914fa2ebc55028a78fc
 <<<<<<< 0d4485c46b4c77373530d9f177be90509609a40d
     app.post('/api/addStudent' , student.handleStudents.addStudent);
 =======
@@ -57,5 +58,16 @@ module.exports = function (app) {
     app.get('/api/dailyData', data.handleData.getAll);
     app.post('/api/addData', data.handleData.addData);
 >>>>>>> login almost done
+=======
+    app.post('/api/addStudent' , student.handleStudents.addStudent);
+    //staff routes
+    app.get('/api/staffs', staff.handleStaffs.getAll);
+    app.post('/api/deleteStaff', staff.handleStaffs.deleteStaff);
+    app.post('/api/addStaff' , staff.handleStaffs.addStaff);
+    //data routes
+    app.get('/api/dailyData' , data.handleData.getAll);
+    app.post('/api/addData' , data.handleData.addData);
+    app.put('/api/updateData' , data.handleData.updateData);
+>>>>>>> save morning and noon data
 
 }
