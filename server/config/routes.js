@@ -48,5 +48,17 @@ module.exports = function (app) {
 
     app.put('/api/updateData' , data.handleData.updateData);
 
+=======
+    app.post('/api/addStudent' , student.handleStudents.addStudent);
+    //staff routes
+    app.get('/api/staffs', staff.handleStaffs.getAll);
+    app.post('/api/deleteStaff', staff.handleStaffs.deleteStaff);
+    app.post('/api/addStaff' , staff.handleStaffs.addStaff);
+    //data routes
+    app.get('/api/dailyData' , data.handleData.getAll);
+    app.post('/api/addData' , data.handleData.addData);
+    app.put('/api/updateData' , data.handleData.updateData);
+>>>>>>> save morning and noon data
+>>>>>>> save morning and noon data
 
 }
