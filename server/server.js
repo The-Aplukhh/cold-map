@@ -24,27 +24,21 @@ db = mongoose.connection;
 passport.serializeUser(function(user, done) {
 	done(null, user);
 });
-<<<<<<< HEAD
-<<<<<<< 26dee09e597bb1715abce7d910b10eb9d21fadac
-=======
->>>>>>> f57335d77df6623f0e60a7076e0b56ee6877d764
+
 
 passport.deserializeUser(function(obj, done) {
 	done(null, obj);
 });
 
 
-<<<<<<< HEAD
-=======
+
 
 passport.deserializeUser(function(obj, done) {
 	done(null, obj);
 });
 
 
->>>>>>> login almost done
-=======
->>>>>>> f57335d77df6623f0e60a7076e0b56ee6877d764
+
 // Use the GitHubStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
 //   credentials (in this case, an accessToken, refreshToken, and GitHub
