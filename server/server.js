@@ -6,6 +6,8 @@ var GitHubStrategy = require('passport-github2').Strategy;
 var passport = require('passport');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+var User = require("./Database/User/userModel");
+
 
 
 
@@ -40,20 +42,43 @@ passport.use(new GitHubStrategy({
 	callbackURL: "https://localhost/loggedin"
 },
 
-function(accessToken, refreshToken, profile, done) {
-	// asynchronous verification, for effect...
-	process.nextTick(function () {
-	
-	// To keep the example simple, the user's GitHub profile is returned to
-	// represent the logged-in user.  In a typical application, you would want
-	// to associate the GitHub account with a user record in your database,
-	// and return that user instead.
-	return done(null, profile);
-	});
-}
+	function (accessToken, refreshToken, profile, done) {
+		// asynchronous verification, for effect...
+
+		// To keep the example simple, the user's GitHub profile is returned to
+		// represent the logged-in user.  In a typical application, you would want
+		// to associate the GitHub account with a user record in your database,
+		// and return that user instead.
+		User.findOne({ github: profile.id }, function (err, person) {
+			if (err) {
+				console.log(err);
+				done(null, null);
+			} if (!err && user != null) {
+				console.log('%s %s is a %s.', person.name.first, person.name.last, person.occupation)
+				done(null, user)
+			} else {
+				const user = new User({
+					name: profile.name,
+					github: profile.displayName,
+					code: accessToken,
+					cohort: "invalid",
+					token: refreshToken,
+					email: profile.email
+				});
+				user.save((err) => {
+					if (err) {
+						console.log('err: ', err);
+					} else {
+						done(null, user);
+					}
+				})
+			}
+		});
+
+	}
 ));
-  
-  
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

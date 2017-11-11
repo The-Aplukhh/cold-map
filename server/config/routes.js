@@ -1,7 +1,6 @@
 var passport = require('passport');
 
-var student = require('../Database/Student/studentController.js');
-var staff = require('../Database/Staff/staffController.js');
+var user = require('../Database/User/userController.js');
 var data = require('../Database/DailyData/dailyDataContoller.js')
 
 module.exports = function (app) {
@@ -35,13 +34,21 @@ module.exports = function (app) {
         res.redirect('/');
     });
 
-    app.get('/api/students', student.handleStudents.getAll);
-    app.post('/api/deleteStudent', student.handleStudents.deleteStudent);
-    app.post('/api/addStudent', student.handleStudents.addStudent);
+    app.get('/api/loggedin',(req, res) => {
+        console.log('In authenticate')
+        console.log('req.session.sessionId', req.session.sessionId)
+        console.log('req.session.username', req.session.username)
+        res.json(req.session);
+
+    });
+
+    app.get('/api/users', user.handleUsers.getAll);
+    app.post('/api/deleteuser', user.handleUsers.deleteUser);
+    app.post('/api/adduser', user.handleUsers.addUser);
     //staff routes
-    app.get('/api/staffs', staff.handleStaffs.getAll);
-    app.post('/api/deleteStaff', staff.handleStaffs.deleteStaff);
-    app.post('/api/addStaff', staff.handleStaffs.addStaff);
+    // app.get('/api/staffs', staff.handleStaffs.getAll);
+    // app.post('/api/deleteStaff', staff.handleStaffs.deleteStaff);
+    // app.post('/api/addStaff', staff.handleStaffs.addStaff);
     //data routes
     app.get('/api/dailyData', data.handleData.getAll);
     app.post('/api/addData', data.handleData.addData);
