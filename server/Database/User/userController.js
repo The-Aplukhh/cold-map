@@ -1,19 +1,19 @@
-var Student = require("./studentModel.js");
-module.exports.handleStudents={
+var User = require("./userModel.js");
+module.exports.handleUsers={
   getAll: function(req,res){
-    Student.find().exec(function(err,allStudents) {
+    User.find().exec(function(err,allUsers) {
       if(err){
         res.status(500).send(err)
       }else{
-        res.json(allStudents);
+        res.json(allUsers);
       }
     })
   },
-  addStudent:function(req,res){
+  addUser:function(req,res){
     var name=req.body.name;
     var cohort=req.body.cohort;
     var email=req.body.email;
-    Student.create({
+    User.create({
       name:name,
       cohort:cohort,
       email:email
@@ -22,19 +22,19 @@ module.exports.handleStudents={
         res.json(err);
       }
       else{
-        console.log(ok)
-        res.json("added successfully!!")
+        console.log(ok);
+        res.json("added successfully!!");
       }
     })
   },
-  deleteStudent:function(req,res){
+  deleteUser:function(req,res){
     var id=req.body.name;
-    Student.remove({name:name},function(err,student){
+    User.remove({name:name},function(err,user){
       if(err){
         res.json(err)
       }
       else{
-        res.json(student);
+        res.json(user);
       }
     })
   }

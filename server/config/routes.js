@@ -1,7 +1,6 @@
 var passport = require('passport');
 
-var student = require('../Database/Student/studentController.js');
-var staff = require('../Database/Staff/staffController.js');
+var user = require('../Database/User/userController.js');
 var data = require('../Database/DailyData/dailyDataContoller.js')
 
 module.exports = function (app) {
