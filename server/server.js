@@ -36,7 +36,8 @@ passport.serializeUser(function (user, done) {
 	done(null, user);
 });
 
-passport.deserializeUser(function (obj, done) {
+
+passport.deserializeUser(function(obj, done) {
 	done(null, obj);
 });
 
@@ -145,8 +146,17 @@ require('./config/routes.js')(app, express);
 
 
 var port = process.env.PORT || 8000
+<<<<<<< HEAD
 app.listen(port, function () {
 	console.log('listening on port' + port);
 });
+=======
+app.listen(port ,function () {
+
+	console.log('listening on port ' + port);
+})
+
+
+>>>>>>> 605052eaecc797b4681fd0f526cbb2bf2f3325df
 
 module.exports = app
