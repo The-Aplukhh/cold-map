@@ -16,14 +16,12 @@ var userSchema = new mongoose.Schema({
 	},
 	token:{
 		type:	String,
-		required: true
 	},
 	cohort:{
 		type     : String,
 	},
 	email:{
-		type     : String,
-		required : true
+		type     : String
 	}
 	
 	});
